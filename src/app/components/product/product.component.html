@@ -2,4 +2,19 @@
   <img [src]="product.image" [alt]="product.title" class="w-1/6 mb-2">
   <h2 class="mb-2 text-md text-center">{{product.title}}</h2>
   <p>Price {{ product.price | currency }}</p>
+
+  <button
+    class="border py-2 px-4 rounded bg-yellow-400"
+    (click)="isDetailsShown = !isDetailsShown"
+  >
+    {{ !isDetailsShown ? "Показать штуки" : "Скрыть штуки" }}
+  </button>
+
+  <div *ngIf="isDetailsShown">
+    <p>{{ product.description }}</p>
+    <p>Rate: {{ product.rating.rate }}</p>
+  </div>
+
 </div>
+
+
